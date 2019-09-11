@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>CABBI_16srDNA</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/lumen.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 54px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 59px;
+  margin-top: -59px;
+}
+.section h2 {
+  padding-top: 59px;
+  margin-top: -59px;
+}
+.section h3 {
+  padding-top: 59px;
+  margin-top: -59px;
+}
+.section h4 {
+  padding-top: 59px;
+  margin-top: -59px;
+}
+.section h5 {
+  padding-top: 59px;
+  margin-top: -59px;
+}
+.section h6 {
+  padding-top: 59px;
+  margin-top: -59px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">About</a>
+</li>
+<li>
+  <a href="CABBI_16srDNA.html">CABBI Amplicon sequencing analysis</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">CABBI_16srDNA</h1>
+
+</div>
+
+
+<p>Loading library</p>
+<pre class="r"><code>library(phyloseq)
+library(ggplot2)
+library(&quot;data.table&quot;)</code></pre>
+<pre><code>## data.table 1.12.2 using 2 threads (see ?getDTthreads).  Latest news: r-datatable.com</code></pre>
+<pre class="r"><code>library(plyr)
+library(&quot;vegan&quot;)</code></pre>
+<pre><code>## Loading required package: permute</code></pre>
+<pre><code>## Loading required package: lattice</code></pre>
+<pre><code>## This is vegan 2.5-5</code></pre>
+<pre class="r"><code>library(&quot;DESeq2&quot;)</code></pre>
+<pre><code>## Loading required package: S4Vectors</code></pre>
+<pre><code>## Loading required package: stats4</code></pre>
+<pre><code>## Loading required package: BiocGenerics</code></pre>
+<pre><code>## Loading required package: parallel</code></pre>
+<pre><code>## 
+## Attaching package: &#39;BiocGenerics&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:parallel&#39;:
+## 
+##     clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
+##     clusterExport, clusterMap, parApply, parCapply, parLapply,
+##     parLapplyLB, parRapply, parSapply, parSapplyLB</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     IQR, mad, sd, var, xtabs</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     anyDuplicated, append, as.data.frame, basename, cbind,
+##     colMeans, colnames, colSums, dirname, do.call, duplicated,
+##     eval, evalq, Filter, Find, get, grep, grepl, intersect,
+##     is.unsorted, lapply, lengths, Map, mapply, match, mget, order,
+##     paste, pmax, pmax.int, pmin, pmin.int, Position, rank, rbind,
+##     Reduce, rowMeans, rownames, rowSums, sapply, setdiff, sort,
+##     table, tapply, union, unique, unsplit, which, which.max,
+##     which.min</code></pre>
+<pre><code>## 
+## Attaching package: &#39;S4Vectors&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:plyr&#39;:
+## 
+##     rename</code></pre>
+<pre><code>## The following objects are masked from &#39;package:data.table&#39;:
+## 
+##     first, second</code></pre>
+<pre><code>## The following object is masked from &#39;package:base&#39;:
+## 
+##     expand.grid</code></pre>
+<pre><code>## Loading required package: IRanges</code></pre>
+<pre><code>## 
+## Attaching package: &#39;IRanges&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:plyr&#39;:
+## 
+##     desc</code></pre>
+<pre><code>## The following object is masked from &#39;package:data.table&#39;:
+## 
+##     shift</code></pre>
+<pre><code>## The following object is masked from &#39;package:phyloseq&#39;:
+## 
+##     distance</code></pre>
+<pre><code>## Loading required package: GenomicRanges</code></pre>
+<pre><code>## Loading required package: GenomeInfoDb</code></pre>
+<pre><code>## Loading required package: SummarizedExperiment</code></pre>
+<pre><code>## Loading required package: Biobase</code></pre>
+<pre><code>## Welcome to Bioconductor
+## 
+##     Vignettes contain introductory material; view with
+##     &#39;browseVignettes()&#39;. To cite Bioconductor, see
+##     &#39;citation(&quot;Biobase&quot;)&#39;, and for packages &#39;citation(&quot;pkgname&quot;)&#39;.</code></pre>
+<pre><code>## 
+## Attaching package: &#39;Biobase&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:phyloseq&#39;:
+## 
+##     sampleNames</code></pre>
+<pre><code>## Loading required package: DelayedArray</code></pre>
+<pre><code>## Loading required package: matrixStats</code></pre>
+<pre><code>## 
+## Attaching package: &#39;matrixStats&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:Biobase&#39;:
+## 
+##     anyMissing, rowMedians</code></pre>
+<pre><code>## The following object is masked from &#39;package:plyr&#39;:
+## 
+##     count</code></pre>
+<pre><code>## Loading required package: BiocParallel</code></pre>
+<pre><code>## 
+## Attaching package: &#39;DelayedArray&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:matrixStats&#39;:
+## 
+##     colMaxs, colMins, colRanges, rowMaxs, rowMins, rowRanges</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     aperm, apply</code></pre>
+<pre class="r"><code>library(ggpubr)</code></pre>
+<pre><code>## Loading required package: magrittr</code></pre>
+<pre><code>## 
+## Attaching package: &#39;ggpubr&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:plyr&#39;:
+## 
+##     mutate</code></pre>
+<pre class="r"><code>library(&quot;VennDiagram&quot;)</code></pre>
+<pre><code>## Loading required package: grid</code></pre>
+<pre><code>## Loading required package: futile.logger</code></pre>
+<pre><code>## 
+## Attaching package: &#39;VennDiagram&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:ggpubr&#39;:
+## 
+##     rotate</code></pre>
+<pre class="r"><code>library(openxlsx)
+library(dada2)</code></pre>
+<pre><code>## Loading required package: Rcpp</code></pre>
+<pre class="r"><code>library(biomformat)
+library(reshape2)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;reshape2&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:data.table&#39;:
+## 
+##     dcast, melt</code></pre>
+<pre class="r"><code>library(cowplot)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;cowplot&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:ggpubr&#39;:
+## 
+##     get_legend</code></pre>
+<pre><code>## The following object is masked from &#39;package:ggplot2&#39;:
+## 
+##     ggsave</code></pre>
+<pre class="r"><code>library(phylosmith)
+library(RColorBrewer)
+library(devtools)</code></pre>
+<pre><code>## Loading required package: usethis</code></pre>
+<pre><code>## 
+## Attaching package: &#39;devtools&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:permute&#39;:
+## 
+##     check</code></pre>
+<pre class="r"><code>library(pairwiseAdonis)</code></pre>
+<pre><code>## Loading required package: cluster</code></pre>
+<div id="read-the-data-and-basic-pruning" class="section level2">
+<h2>Read the data and basic pruning</h2>
+<p>Loading ASVs table generated from DADA2, combining with metadata file</p>
+<pre class="r"><code>otu_cabbi &lt;- readRDS(&quot;data/seq_table.RDS&quot;)
+tax_cabbi &lt;- readRDS(&quot;data/tax_table.RDS&quot;)
+ps &lt;- phyloseq(otu_table(otu_cabbi, taxa_are_rows=TRUE), tax_table(tax_cabbi))
+metadata&lt;-read.csv(file=&quot;data/meatadata_cabbi.csv&quot;)
+rownames(metadata)&lt;- metadata$Samples
+sample_data(ps)&lt;- metadata</code></pre>
+<p>To prune out ASVs that are bigger than 10</p>
+<pre class="r"><code>ps.1 &lt;- prune_species(speciesSums(ps)&gt;=10, ps)</code></pre>
+<pre><code>## Warning: &#39;prune_species&#39; is deprecated.
+## Use &#39;prune_taxa&#39; instead.
+## See help(&quot;Deprecated&quot;) and help(&quot;phyloseq-deprecated&quot;).</code></pre>
+<pre><code>## Warning: &#39;speciesSums&#39; is deprecated.
+## Use &#39;taxa_sums&#39; instead.
+## See help(&quot;Deprecated&quot;) and help(&quot;phyloseq-deprecated&quot;).</code></pre>
+<p>Rarefying</p>
+<pre class="r"><code>#sample_sums(ps.1) # there are several which has less than 9000
+
+set.seed(100)
+ps.1.rare &lt;- rarefy_even_depth(ps.1, sample.size=9000, rngseed=TRUE)</code></pre>
+<pre><code>## `set.seed(TRUE)` was used to initialize repeatable random subsampling.</code></pre>
+<pre><code>## Please record this for your records so others can reproduce.</code></pre>
+<pre><code>## Try `set.seed(TRUE); .Random.seed` for the full vector</code></pre>
+<pre><code>## ...</code></pre>
+<pre><code>## 34 samples removedbecause they contained fewer reads than `sample.size`.</code></pre>
+<pre><code>## Up to first five removed samples are:</code></pre>
+<pre><code>## 1005_C_2018_P4_N0_20180425_CABBI1022_C_2018_P13_N300_20180425_CABBI1028_M_2015_P3_N400_20180425_CABBI1092_M_2016_P37_N400_20180425_CABBI1123_C_2018_P39_N0_20180425_CABBI    </code></pre>
+<pre><code>## ...</code></pre>
+<pre><code>## 18OTUs were removed because they are no longer 
+## present in any sample after random subsampling</code></pre>
+<pre><code>## ...</code></pre>
+<p>Miscanthus samples</p>
+<pre class="r"><code>mischanthus &lt;- prune_samples((sample_data(ps.1.rare))$Plant ==&quot;Miscanthus&quot;, ps.1.rare)
+mis.noBulk &lt;- prune_samples(sample_data(mischanthus)$Soil ==&quot;Rizosphere&quot;, mischanthus)#416 samples</code></pre>
+</div>
+<div id="barchart" class="section level2">
+<h2>Barchart</h2>
+<p>barchart of relative abundance of different phyla faceted by Nitrogen rates and planting year of Miscanthus</p>
+<pre class="r"><code>mischanthus.noBulk.relative &lt;- transform_sample_counts(mis.noBulk, function(x) x/sum(x))
+mischanthus.noBulk.relative.glom &lt;- conglomerate_taxa(mischanthus.noBulk.relative, classification = &quot;Phylum&quot; )
+mischanthus.noBulk.relative.glom.melt &lt;- psmelt(mischanthus.noBulk.relative.glom)
+mischanthus.noBulk.relative.glom.melt.mean &lt;- ddply(mischanthus.noBulk.relative.glom.melt, c(&quot;OTU&quot;,&quot;Phylum&quot;,&quot;Year&quot;,&quot;Nitrogen&quot;,&quot;Days&quot;), summarise, mean=mean(Abundance))
+colourCount=length(unique((mischanthus.noBulk.relative.glom.melt.mean)$Phylum))
+getPalette = colorRampPalette(brewer.pal(9, &quot;Set1&quot;))##these two lines to solve the problem that the warning message&quot;In RColorBrewer::brewer.pal(n, pal) :
+#n too large, allowed maximum for palette Set1 is 9&quot;
+Nitrogen &lt;- c(&quot;0&quot;=&quot;N0&quot;, &quot;200&quot;=&quot;N224&quot;, &quot;400&quot;=&quot;N448&quot;)
+bar.mis.noBulk.phyla &lt;- ggplot(data=mischanthus.noBulk.relative.glom.melt.mean, mapping = aes_string(x=&quot;as.factor(Days)&quot;, y=&quot;mean&quot;))+
+  geom_bar(aes(fill=Phylum), stat=&quot;identity&quot;, position=&quot;stack&quot;)+guides(fill=guide_legend(ncol=1))+
+  facet_grid(Nitrogen~Year,labeller = labeller(Nitrogen=as_labeller(Nitrogen)))+
+  scale_fill_manual(values = getPalette(colourCount))+
+  theme(axis.text.x = element_text(angle = 90, size=14),
+        axis.text.y = element_text(size=14),
+        axis.title.y = element_text(angle=90),
+        panel.background=element_rect(fill=&quot;white&quot;, colour=&quot;white&quot;),
+        axis.title = element_text(size = 16),
+        legend.text = element_text(size=14),
+        legend.title=element_text(size=16),
+        axis.line = element_line(colour = &quot;black&quot;, size = 1, linetype = &quot;solid&quot;),
+        strip.background = element_rect(colour = &quot;black&quot;, fill = &quot;white&quot;,size=2, linetype=&quot;solid&quot;),
+        strip.text=element_text(size=14)
+  )+
+  labs(x=&quot;Days after N&quot;, y=&quot;Relative abundance&quot;) 
+##ggsave(bar.mis.noBulk.phyla, file=&quot;figures/bar_relativeAbundance_phyla_mis_noBulk.pdf&quot;, units=&quot;in&quot;, width=9, height = 9)
+bar.mis.noBulk.phyla</code></pre>
+<p><img src="CABBI_16srDNA_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>As they are similar at the phylum level along with planting year of Miscanthus and N fertilizatio rates, I will only plot the relativea bundance of diffferent phyla</p>
+<pre class="r"><code>mischanthus.noBulk.relative.glom.melt.mean.Phylum &lt;- ddply(mischanthus.noBulk.relative.glom.melt, c(&quot;OTU&quot;,&quot;Phylum&quot;), summarise, mean=mean(Abundance), sd=sd(Abundance))
+index &lt;- order(mischanthus.noBulk.relative.glom.melt.mean.Phylum$mean, decreasing=T, na.last = T)[1:15]
+mischanthus.noBulk.relative.glom.melt.mean.Phylum.ordered &lt;- mischanthus.noBulk.relative.glom.melt.mean.Phylum[index,]
+mischanthus.noBulk.relative.glom.melt.mean.Phylum.ordered$Phylum &lt;- factor(mischanthus.noBulk.relative.glom.melt.mean.Phylum.ordered$Phylum, 
+   levels = mischanthus.noBulk.relative.glom.melt.mean.Phylum.ordered$Phylum)
+mischanthus.noBulk.relative.glom.melt.mean.Phylum.ordered &lt;- mischanthus.noBulk.relative.glom.melt.mean.Phylum.ordered[!(is.na(mischanthus.noBulk.relative.glom.melt.mean.Phylum.ordered$Phylum)),]
+colourCount=length(unique((mischanthus.noBulk.relative.glom.melt.mean.Phylum.ordered )$Phylum))
+getPalette = colorRampPalette(brewer.pal(9, &quot;Set1&quot;))
+mischanthus.noBulk.relative.glom.melt.mean.Phylum.bar &lt;- ggplot(data=mischanthus.noBulk.relative.glom.melt.mean.Phylum.ordered,  mapping = aes_string(x=&quot;Phylum&quot;, y=&quot;mean&quot;))+
+  geom_bar(aes( fill=Phylum), stat=&quot;identity&quot;)+guides(fill=guide_legend(ncol=2))+
+  scale_fill_manual(values = getPalette(colourCount))+
+  theme(axis.text.x = element_text(angle = 45, size=12, vjust = 1, hjust = 1),
+        axis.text.y = element_text(size=12),
+        axis.title.x = element_text(size =16),
+        axis.title.y = element_text(angle=90, size =16),
+        panel.background=element_rect(fill=&quot;white&quot;, colour=&quot;white&quot;),
+        axis.title = element_text(size = 16),
+        legend.text = element_text(size=10),
+        legend.key.size = unit(4, &#39;mm&#39;),
+        legend.title=element_text(size=12),
+        #legend.position = c(.7,0.5),
+        legend.position=&quot;none&quot;,
+        axis.line = element_line(colour = &quot;black&quot;, size = 1, linetype = &quot;solid&quot;),
+        strip.background = element_rect(colour = &quot;black&quot;, fill = &quot;white&quot;,size=2, linetype=&quot;solid&quot;),
+        strip.text=element_text(size=14)
+  )+
+  labs(x=&quot;Phylum&quot;, y=&quot;Relative abundance&quot;)
+mischanthus.noBulk.relative.glom.melt.mean.Phylum.bar</code></pre>
+<p><img src="CABBI_16srDNA_files/figure-html/unnamed-chunk-7-1.png" width="672" /> ## Alpha diversity Check the alpha diverist to see whether plaing year of Miscanthus has effect on it</p>
+<pre class="r"><code>richness &lt;- estimate_richness(mis.noBulk, measures=c( &quot;InvSimpson&quot;, &quot;Shannon&quot;))
+sam &lt;- sample_data(mis.noBulk)
+sa &lt;- data.frame(sam$Samples, sam$Year, sam$Nitrogen, sam$Days)
+rownames(richness) = gsub(pattern=&quot;X*&quot;, replacement=&quot;&quot;, x=rownames(richness))
+merged &lt;- merge(richness, sa, by.x= &quot;row.names&quot;, by.y=&quot;sam.Samples&quot;)
+merged.melt &lt;-melt(merged, id.vars=c(&quot;Row.names&quot;,&quot;sam.Year&quot;,&quot;sam.Nitrogen&quot;), measure.vars=c(&quot;Shannon&quot;,&quot;InvSimpson&quot;))
+alpha.mis.noBulk.N &lt;- ggplot(merged.melt, aes(x=as.factor(sam.Year),y=value))+geom_boxplot()+facet_grid(~variable)+
+  theme(axis.text.x = element_text(angle = 90, size=14),
+        axis.text.y = element_text(size=14),
+        axis.title.y = element_text(angle=90),
+        panel.background=element_rect(fill=&quot;white&quot;, colour=&quot;white&quot;),
+        axis.title = element_text(size = 16),
+        legend.text = element_text(size=14),
+        legend.title=element_text(size=16),
+        axis.line = element_line(colour = &quot;black&quot;, size = 1, linetype = &quot;solid&quot;),
+        strip.background = element_rect(colour = &quot;black&quot;, fill = &quot;white&quot;,size=2, linetype=&quot;solid&quot;),
+        strip.text=element_text(size=14))+
+  xlab(&quot;Planting year of Miscanthus&quot;)
+comp.Year &lt;- list(c(&quot;2015&quot;,&quot;2016&quot;), c(&quot;2015&quot;,&quot;2017&quot;),c(&quot;2016&quot;,&quot;2017&quot;))
+alpha.mis.noBulk.N.pvalue &lt;- alpha.mis.noBulk.N + stat_compare_means(comparisons = comp.Year, label=&quot;p.signif&quot;)
+alpha.mis.noBulk.N.pvalue</code></pre>
+<p><img src="CABBI_16srDNA_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+</div>
+<div id="beta-diversity" class="section level2">
+<h2>Beta diversity</h2>
+<p>Adonis analysis to see which variance drives the microbial community strucutre. As we’ve already run all these Adonis analysis and it uses up a lot of computing power, i will use eval=FALSE here</p>
+<pre class="r"><code>mischanthus.noBulk.df &lt;- t(phyloseq::otu_table(mis.noBulk))
+mischanthus.noBulk.df.dist &lt;- vegdist(mischanthus.noBulk.df , method=&quot;bray&quot;)
+adonis(mischanthus.noBulk.df.dist ~ as.factor(sample_data(mis.noBulk)$Nitrogen)+as.factor(sample_data(mis.noBulk)$Days)+ 
+         as.factor(sample_data(mis.noBulk)$Year)+as.factor(sample_data(mis.noBulk)$Nitrogen)*as.factor(sample_data(mis.noBulk)$Days)+
+        as.factor(sample_data(mis.noBulk)$Year)*as.factor(sample_data(mis.noBulk)$Nitrogen),strata=as.factor(sample_data(mis.noBulk)$Plot))</code></pre>
+<p>by adonis, we found out planting year of Miscanthus is the largest variance, and N fertilization rates are the second.</p>
+<p>Then we further use pairwise Adonis to see whether they are significanlty different by any of these two year</p>
+<pre class="r"><code> mis.noBulk.df &lt;- t(otu_table(mis.noBulk))
+ mis.noBulk.df.dist &lt;- vegdist(mis.noBulk.df, method=&quot;bray&quot;)
+ fac=data.frame(Year=as.factor(sample_data(mis.noBulk)$Year),days=as.factor(sample_data(mis.noBulk)$Days), Plot=as.factor(sample_data(mis.noBulk)$Plot))
+pairwise.adonis2(dist(mis.noBulk.df) ~ Year*days, data=fac, strata=&quot;Plot&quot;)</code></pre>
+<p>As there was no significant difference between M2015 and M2016, so i will combine the mtogether and see how N affect the and 2017 associtaed microbiome also by pairwise Adonis</p>
+<pre class="r"><code> mis.noBulk.1516 &lt;- prune_samples(sample_data(mis.noBulk)$Comparing ==1, mis.noBulk)#276 samples
+ mis.noBulk.1516.df &lt;- t(otu_table(mis.noBulk.1516))
+ mis.noBulk.df.1516.dist &lt;- vegdist(mis.noBulk.1516.df, method=&quot;bray&quot;)
+ fac=data.frame(Nitrogen=as.factor(sample_data(mis.noBulk.1516)$Nitrogen),days=as.factor(sample_data(mis.noBulk.1516)$Days), Plot=as.factor(sample_data(mis.noBulk.1516)$Plot))
+pairwise.adonis2(dist(mis.noBulk.1516.df) ~ Nitrogen*days, data=fac, strata=&quot;Plot&quot;)</code></pre>
+<p>How N affect microbiome associated with M2017</p>
+<pre class="r"><code> mis.noBulk.17 &lt;- prune_samples(sample_data(mis.noBulk)$Comparing ==2, mis.noBulk)## 139 samples
+ mis.noBulk.17.df &lt;- t(otu_table(mis.noBulk.17))
+ fac=data.frame(Nitrogen=as.factor(sample_data(mis.noBulk.17)$Nitrogen),days=as.factor(sample_data(mis.noBulk.17)$Days), Plot=as.factor(sample_data(mis.noBulk.17)$Plot))
+pairwise.adonis2(dist(mis.noBulk.17.df) ~ Nitrogen*days, data=fac, strata=&quot;Plot&quot;)</code></pre>
+<p>It showed that there is no significant difference between M2015 and M2016. while it was significantly differnt between M2017 and M2015; M2017 and M2016</p>
+</div>
+<div id="venn-diagram" class="section level2">
+<h2>Venn diagram</h2>
+<p>To see what ASVs were shared/unique associated with each planting year of Miscanthus as it is the largest variance to drive the community structure to be different</p>
+<pre class="r"><code>mis.noBulk.2015 &lt;- prune_samples(sample_data(mis.noBulk)$Year ==&quot;2015&quot;, mis.noBulk)
+no.zero.mis.noBulk.2015 &lt;- prune_taxa(taxa_sums(mis.noBulk.2015) &gt; 0, mis.noBulk.2015)
+list.2015 &lt;- rownames(otu_table(no.zero.mis.noBulk.2015))
+
+mis.noBulk.2016 &lt;- prune_samples(sample_data(mis.noBulk)$Year ==&quot;2016&quot;, mis.noBulk)
+no.zero.mis.noBulk.2016 &lt;- prune_taxa(taxa_sums(mis.noBulk.2016) &gt; 0, mis.noBulk.2016)
+list.2016 &lt;- rownames(otu_table(no.zero.mis.noBulk.2016))
+
+mis.noBulk.2017 &lt;- prune_samples(sample_data(mis.noBulk)$Year ==&quot;2017&quot;, mis.noBulk)
+no.zero.mis.noBulk.2017 &lt;- prune_taxa(taxa_sums(mis.noBulk.2017) &gt; 0, mis.noBulk.2017)
+list.2017 &lt;- rownames(otu_table(no.zero.mis.noBulk.2017))
+
+source(&quot;new_triple_venn.R&quot;)
+
+venn.15.16.17 &lt;- draw.triple.venn(area1=length(list.2015), area2=length(list.2016), area3=length(list.2017), n12=length(list.2015[list.2015 %in% list.2016]), 
+                                  n23=length(list.2016[list.2016 %in% list.2017]), n13=length(list.2015[list.2015 %in% list.2017]),
+                                  n123=length(list.2015[list.2015 %in% list.2016[list.2016 %in% list.2017]]), category = c(&quot;2015&quot;,&quot;2016&quot;,&quot;2017&quot;),fill = c(&quot;skyblue&quot;, &quot;pink1&quot;, &quot;mediumorchid&quot;), lty=&quot;blank&quot;)
+
+other_venn &lt;- draw.triple.venn2(area1=length(list.2015), area2=length(list.2016), area3=length(list.2017), n12=length(list.2015[list.2015 %in% list.2016]), 
+                                  n23=length(list.2016[list.2016 %in% list.2017]), n13=length(list.2015[list.2015 %in% list.2017]),
+                                  n123=length(list.2015[list.2015 %in% list.2016[list.2016 %in% list.2017]]), category = c(&quot;2015&quot;,&quot;2016&quot;,&quot;2017&quot;),fill = c(&quot;skyblue&quot;, &quot;pink1&quot;, &quot;mediumorchid&quot;), lty=&quot;blank&quot;)</code></pre>
+<p><img src="CABBI_16srDNA_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<pre class="r"><code>#ggsave(other_venn, file=&quot;figures/venn_diagram_mis_noBulk_percantage.pdf&quot;, units=&quot;in&quot;, height=6, width=6)</code></pre>
+</div>
+<div id="deseq2" class="section level2">
+<h2>DESeq2</h2>
+<p>to see the enriched taxa associated with aged Miscanthus or young Miscanthus; as there was no significant difference on microibal community associated with M2015 and M2016, so we will combine them together, called as aged Miscanthus</p>
+<pre class="r"><code>mis.noRare &lt;- prune_samples(sample_data(ps.1)$Plant ==&quot;Miscanthus&quot;, ps.1)
+mis.noRare.noBulk &lt;- prune_samples(sample_data(mis.noRare)$Soil ==&quot;Rizosphere&quot;, mis.noRare)
+sample_data(mis.noRare.noBulk)$Comparing &lt;- as.factor(sample_data(mis.noRare.noBulk)$Comparing)
+diagdds= phyloseq_to_deseq2(mis.noRare.noBulk, ~Comparing)
+diagdds=DESeq(diagdds, test=&quot;Wald&quot;, fitType=&quot;parametric&quot;)
+saveRDS(diagdds, file=&quot;diagdds_cabbi_comparing1vs2.rds&quot;)
+diagdds &lt;- readRDS(file=&quot;diagdds_cabbi_comparing1vs2.rds&quot;)
+res &lt;- results(diagdds, contrast=c(&quot;Comparing&quot;,&quot;1&quot;,&quot;2&quot;))
+alpha=0.01
+sigtab = res[which(res$padj &lt; alpha), ]
+
+sigtab=cbind(as(sigtab, &quot;data.frame&quot;), as(tax_table(mis.noRare.noBulk)[rownames(sigtab), ], &quot;matrix&quot;))
+
+dim(sigtab)
+with_abund.sigtab  &lt;- cbind(sigtab , abundance=taxa_sums(mis.noBulk)[rownames(sigtab )])
+write.csv(with_abund.sigtab, file=&quot;sigOTUsInMisby20152016over2017.csv&quot;)</code></pre>
+<p>As I’ve already run the DESeq2 analysis, so i will just read the result file</p>
+<pre class="r"><code>with_abund.sigtab&lt;- read.csv(file=&quot;data/sigOTUsInMisby20152016over2017.csv&quot;)
+#dim: 3506 14
+#length(grep(TRUE, with_abund.sigtab$log2FoldChange&lt; (-2))) 344
+#length(grep(TRUE, with_abund.sigtab$log2FoldChange&gt;2)) 341
+theme_set(theme_bw())
+scale_fill_discrete &lt;- function(palname = &quot;Set1&quot;, ...) {
+  scale_fill_brewer(palette = palname, ...)
+}
+# Phylum order
+x = tapply(with_abund.sigtab$log2FoldChange,with_abund.sigtab$Phylum, function(x) max(x))
+x = sort(x, TRUE)
+with_abund.sigtab$Phylum = factor(as.character(with_abund.sigtab$Phylum), levels=names(x))
+# Genus order
+x = tapply(with_abund.sigtab$log2FoldChange, with_abund.sigtab$Genus, function(x) max(x))
+x = sort(x, TRUE)
+
+sigASVs.genus.black &lt;- ggplot(with_abund.sigtab, aes(x=Phylum,y=log2FoldChange))+
+  geom_point(data=subset(with_abund.sigtab, abs(log2FoldChange) &gt; 2) , aes(color=Phylum))+
+  theme(axis.text.x=element_text(angle=45, hjust = 1,size=9),
+        axis.text.y = element_text(size=14),
+        axis.title.y = element_text(angle=90),
+        panel.background=element_rect(fill=&quot;white&quot;, colour=&quot;white&quot;),
+        axis.title = element_text(size = 16),
+        legend.position = &quot;none&quot;,
+        legend.box = &quot;horizaontal&quot;,
+        axis.line = element_line(colour = &quot;black&quot;, size = 1, linetype = &quot;solid&quot;),
+        strip.background = element_rect(colour = &quot;black&quot;, fill = &quot;white&quot;,size=2, linetype=&quot;solid&quot;),
+        strip.text=element_text(size=14))</code></pre>
+<p>Then to check the potentially associated N cycling funcitons of these significantly changed ASVs To get the OTU table and sequence file</p>
+<pre class="r"><code>sigotus.phylo.noRelative &lt;- subset_taxa(mis.noBulk,taxa_names(mis.noBulk) %in% with_abund.sigtab$X)
+# to get the otu table
+sigASVs.1516over17.2 &lt;- with_abund.sigtab[abs(with_abund.sigtab$log2FoldChange)&gt;2, ]
+sigotus.2.phylo.noRelative &lt;- subset_taxa(mis.noBulk,taxa_names(mis.noBulk) %in% sigASVs.1516over17.2$X)
+ # to get the otu table
+otu &lt;- otu_table(sigotus.2.phylo.noRelative)
+write.table(otu, &quot;figures/otu_table_sigASVs_1516over17_log2_2.txt&quot;, row.names=T)
+
+
+ ### make fasta
+asv_seqs &lt;- taxa_names(sigotus.2.phylo.noRelative)
+asv_headers &lt;- vector(length(taxa_names(sigotus.2.phylo.noRelative)), mode=&quot;character&quot;)
+
+for (i in 1:length(taxa_names(sigotus.2.phylo.noRelative))) {
+  asv_headers[i] &lt;- paste(&quot;&gt;ASV&quot;, i, sep=&quot;_&quot;)
+}
+
+# making and writing out a fasta of our final ASV seqs:
+asv_fasta &lt;- c(rbind(asv_headers, asv_seqs))
+write(asv_fasta, &quot;figures/sigASVs_1516over17_log2_2.fa&quot;)</code></pre>
+</div>
+<div id="picrust-result" class="section level2">
+<h2>PICRUSt result</h2>
+<p>I’ve run PICRUSt on HPC with the OTU table and .fasta file, so i will read the result here</p>
+<pre class="r"><code>result1516over17 &lt;- read_biom(&quot;data/metagenome_predictionssigASVs_1516over17_20190708.biom&quot;)</code></pre>
+<pre><code>## Warning in strsplit(conditionMessage(e), &quot;\n&quot;): input string 1 is invalid
+## in this locale</code></pre>
+<pre class="r"><code>kegg_nitrogen_subclass &lt;- read.xlsx(&quot;data/kegg_nitrogen_subclass.xlsx&quot;, colNames=F)
+colnames(kegg_nitrogen_subclass) &lt;- c(&quot;subclass&quot;,&quot;kid&quot;)
+matrix1516over17 &lt;- as(biom_data(result1516over17), &quot;matrix&quot;)
+result1516over17 &lt;- data.frame()
+for ( one_category in unique(kegg_nitrogen_subclass$subclass)){
+  ids &lt;- kegg_nitrogen_subclass[ kegg_nitrogen_subclass$subclass %in% one_category,]$kid
+  sub &lt;- subset(matrix1516over17, rownames(matrix1516over17) %in% ids)
+  result1516over17 &lt;- rbind(result1516over17,colSums(sub))
+  rownames(result1516over17)[nrow(result1516over17)] &lt;- one_category 
+}
+colnames(result1516over17) &lt;- colnames(matrix1516over17)
+
+tresult1516over17 &lt;- t(result1516over17)
+
+S1516over17 &lt;- cbind(tresult1516over17, sample_data(mis.noBulk))
+
+
+subforplot1516over17 &lt;- S1516over17[, c(&quot;Dissimilatory nitrate reduction&quot;, &quot;Assimilatory nitrate reduction&quot;,&quot;Denitrification&quot;,&quot;Nitrogen fixation&quot;,&quot;Nitrification&quot;,&quot;Anammox&quot;,&quot;Year&quot;,&quot;Nitrogen&quot;)]
+
+melted1516over17 &lt;- melt(subforplot1516over17, id=c(&quot;Year&quot;,&quot;Nitrogen&quot;))
+
+sub.N.1516over17&lt;- ggplot(melted1516over17, aes(x=as.factor(Nitrogen), y = value))+geom_boxplot()+facet_grid(Year~variable)+
+  theme(axis.text.x = element_text(angle = 90, size=14),
+        axis.text.y = element_text(size=14),
+        axis.title.y = element_text(angle=90),
+        panel.background=element_rect(fill=&quot;white&quot;, colour=&quot;white&quot;),
+        axis.title = element_text(size = 16),
+        legend.text = element_text(size=14),
+        legend.title=element_text(size=16),
+        axis.line = element_line(colour = &quot;black&quot;, size = 1, linetype = &quot;solid&quot;),
+        strip.background = element_rect(colour = &quot;black&quot;, fill = &quot;white&quot;,size=2, linetype=&quot;solid&quot;),
+        strip.text.x = element_text(size=8), 
+        strip.text.y = element_text(size=12)
+  )+
+  scale_x_discrete(labels=c(&quot;0&quot;=&quot;0&quot;,&quot;200&quot;=&quot;224&quot;,&quot;400&quot;=&quot;448&quot;))+
+  xlab(expression(N~fertilization~rates~(kg~ha^{-1}~yr^{-1})))+
+  ylab(&quot;value&quot;)+
+  ylim(0, 7000)
+comp.N &lt;- list(c(&quot;0&quot;,&quot;200&quot;), c(&quot;0&quot;,&quot;400&quot;),c(&quot;200&quot;,&quot;400&quot;))
+sub.N.1516over17.pvalue &lt;- sub.N.1516over17+stat_compare_means(comparisons = comp.N, label=&quot;p.signif&quot;, method=&quot;t.test&quot;)
+sub.N.1516over17.pvalue</code></pre>
+<p><img src="CABBI_16srDNA_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+</div>
+<div id="deseq2-to-see-the-n-effect" class="section level2">
+<h2>DESEq2 to see the N effect</h2>
+<p>assoicated with aged Miscanthus and young Miscanthus, repectively</p>
+<pre class="r"><code>M2017.noRare &lt;- prune_samples(sample_data(mis.noRare.noBulk)$Year==&quot;2017&quot;, mis.noRare.noBulk)
+sample_data(M2017.noRare)$Nitrogen &lt;- as.factor(sample_data(M2017.noRare)$Nitrogen)
+diagdds= phyloseq_to_deseq2(M2017.noRare, ~Nitrogen)
+diagdds$Nitrogen &lt;- relevel(diagdds$Nitrogen, ref=&quot;0&quot;) # here is to set the N0 as the reference level by relevel
+diagdds=DESeq(diagdds, test=&quot;Wald&quot;, fitType=&quot;parametric&quot;)
+#resultsNames(diagdds)
+#&quot;Intercept&quot;         &quot;Nitrogen_200_vs_0&quot; &quot;Nitrogen_400_vs_0&quot;
+res &lt;- results(diagdds)
+alpha=0.01
+sigtab = res[which(res$padj &lt; alpha), ]
+#sigtab=cbind(as(sigtab, &quot;data.frame&quot;), as(tax_table(mis.noBulk.2017)[rownames(sigtab), ], &quot;matrix&quot;))
+dim(sigtab)#296 18
+
+mis.noBulk.2017.relative &lt;- transform_sample_counts(mis.noBulk.2017, function(x) x/sum(x))
+with_abund.sigtab.M2017.N &lt;- subset_taxa(mis.noBulk.2017.relative, taxa_names(mis.noBulk.2017.relative) %in% rownames(sigtab))
+saveRDS(with_abund.sigtab.M2017.N, file=&quot;data/sigOTUS_inM2017_by_N.rds&quot;)</code></pre>
+<p>Same as above, i have run the DESEq2 so i will just read the result file</p>
+<pre class="r"><code>with_abund.sigtab.M2017.N &lt;- readRDS(file=&quot;data/sigOTUS_inM2017_by_N.rds&quot;)
+with_abund.sigtab.M2017.N.glom &lt;- conglomerate_taxa(with_abund.sigtab.M2017.N, classification = &quot;Phylum&quot;)
+with_abund.sigtab.M2017.N.glom.melt &lt;- melt_phyloseq(with_abund.sigtab.M2017.N.glom)
+with_abund.sigtab.M2017.N.glom.melt.mean &lt;- ddply(with_abund.sigtab.M2017.N.glom.melt, c(&quot;OTU&quot;,&quot;Phylum&quot;,&quot;Nitrogen&quot;,&quot;Days&quot;), summarise, mean=mean(Abundance))
+colourCount=length(unique((with_abund.sigtab.M2017.N.glom.melt.mean)$Phylum))
+getPalette = colorRampPalette(brewer.pal(9, &quot;Set1&quot;))
+M2017.c &lt;- getPalette(colourCount)
+
+sigASVs.M2017.N.bar &lt;- ggplot(data=with_abund.sigtab.M2017.N.glom.melt.mean, mapping = aes_string(x=&quot;as.factor(Days)&quot;, y=&quot;mean&quot;))+
+  geom_bar(aes(fill=Phylum),stat=&quot;identity&quot;, position=&quot;stack&quot;)+facet_grid(~Nitrogen,labeller = labeller(Nitrogen=as_labeller(Nitrogen)))+
+  scale_fill_manual(values = M2017.c)+
+  theme(axis.text.x = element_text(angle = 90, size=14),
+        axis.text.y = element_text(size=14),
+        axis.title.y = element_text(angle=90),
+        panel.background=element_rect(fill=&quot;white&quot;, colour=&quot;white&quot;),
+        axis.title = element_text(size = 16),
+        legend.text = element_text(size=8),
+        legend.title=element_text(size=16),
+        legend.position = c(0.2, 0.65),
+        legend.key.size = unit(4, &quot;mm&quot;),
+        axis.line = element_line(colour = &quot;black&quot;, size = 1, linetype = &quot;solid&quot;),
+        strip.background = element_rect(colour = &quot;black&quot;, fill = &quot;white&quot;,size=2, linetype=&quot;solid&quot;),
+        strip.text.x = element_text(size=12), 
+        strip.text.y = element_text(size=12)
+  )+
+  xlab(&quot;Days after N&quot;)+
+  ylab(&quot;Relative abundance &quot;)+
+  ylim(c(0.00,0.30))
+sigASVs.M2017.N.bar</code></pre>
+<p><img src="CABBI_16srDNA_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p>As there is shooting increase of phylum Proteobacteria once after fertilizer application, i would like to see what are composed of Proteobacteria in this significantly changed ASvs in M2017</p>
+<pre class="r"><code>with_abund.sigtab.M2017.N.Proteobacteria &lt;- subset_taxa(with_abund.sigtab.M2017.N, Phylum ==&quot;Proteobacteria&quot;)
+with_abund.sigtab.M2017.N.Proteobacteria.glom.class &lt;- conglomerate_taxa(with_abund.sigtab.M2017.N.Proteobacteria, classification=&quot;Class&quot;)
+with_abund.sigtab.M2017.N.Proteobacteria.melt &lt;-  melt_phyloseq(with_abund.sigtab.M2017.N.Proteobacteria.glom.class)
+with_abund.sigtab.M2017.N.Proteobacteria.melt.mean &lt;- ddply(with_abund.sigtab.M2017.N.Proteobacteria.melt, c(&quot;OTU&quot;,&quot;Class&quot;,&quot;Nitrogen&quot;,&quot;Days&quot;), summarise, mean=mean(Abundance))
+colourCount=length(unique((with_abund.sigtab.M2017.N.Proteobacteria.melt.mean)$Class))
+getPalette = colorRampPalette(brewer.pal(9, &quot;Set1&quot;))
+Class.proteobacteria &lt;- ggplot(data=with_abund.sigtab.M2017.N.Proteobacteria.melt.mean, mapping = aes_string(x=&quot;as.factor(Days)&quot;, y=&quot;mean&quot;))+
+  geom_bar(aes(fill=Class),stat=&quot;identity&quot;, position=&quot;stack&quot;)+facet_grid(~Nitrogen,labeller = labeller(Nitrogen=as_labeller(Nitrogen)))+
+  scale_fill_manual(values = getPalette(colourCount))+
+  theme(axis.text.x = element_text(angle = 90, size=14),
+        axis.text.y = element_text(size=14),
+        axis.title.y = element_text(angle=90),
+        panel.background=element_rect(fill=&quot;white&quot;, colour=&quot;white&quot;),
+        axis.title = element_text(size = 16),
+        legend.text = element_text(size=8),
+        legend.title=element_text(size=16),
+        legend.position = c(0.2, 0.65),
+        legend.key.size = unit(4, &quot;mm&quot;),
+        axis.line = element_line(colour = &quot;black&quot;, size = 1, linetype = &quot;solid&quot;),
+        strip.background = element_rect(colour = &quot;black&quot;, fill = &quot;white&quot;,size=2, linetype=&quot;solid&quot;),
+        strip.text.x = element_text(size=12), 
+        strip.text.y = element_text(size=12)
+  )+
+  xlab(&quot;Days after N&quot;)+
+  ylab(&quot;Relative abundance &quot;)+
+  ylim(c(0.00,0.30))
+Class.proteobacteria</code></pre>
+<p><img src="CABBI_16srDNA_files/figure-html/unnamed-chunk-20-1.png" width="672" /> Also check the Acidobacteria in significantly changed ASVs in M2017</p>
+<pre class="r"><code>with_abund.sigtab.M2017.N.Acidobacteria&lt;- subset_taxa(with_abund.sigtab.M2017.N, Phylum ==&quot;Acidobacteria&quot;)
+with_abund.sigtab.M2017.N.Acidobacteria.glom.class &lt;- conglomerate_taxa(with_abund.sigtab.M2017.N.Acidobacteria, classification=&quot;Class&quot;)
+with_abund.sigtab.M2017.N.Acidobacteria.melt &lt;-  melt_phyloseq(with_abund.sigtab.M2017.N.Acidobacteria.glom.class)
+with_abund.sigtab.M2017.N.Acidobacteria.melt.mean &lt;- ddply(with_abund.sigtab.M2017.N.Acidobacteria.melt, c(&quot;OTU&quot;,&quot;Class&quot;,&quot;Nitrogen&quot;,&quot;Days&quot;), summarise, mean=mean(Abundance))
+colourCount=length(unique((with_abund.sigtab.M2017.N.Acidobacteria.melt.mean)$Class))
+getPalette = colorRampPalette(brewer.pal(9, &quot;Set1&quot;))
+Class.Acidobacteria &lt;- ggplot(data=with_abund.sigtab.M2017.N.Acidobacteria.melt.mean, mapping = aes_string(x=&quot;as.factor(Days)&quot;, y=&quot;mean&quot;))+
+  geom_bar(aes(fill=Class),stat=&quot;identity&quot;, position=&quot;stack&quot;)+facet_grid(~Nitrogen,labeller = labeller(Nitrogen=as_labeller(Nitrogen)))+
+  scale_fill_manual(values = getPalette(colourCount))+
+  theme(axis.text.x = element_text(angle = 90, size=14),
+        axis.text.y = element_text(size=14),
+        axis.title.y = element_text(angle=90),
+        panel.background=element_rect(fill=&quot;white&quot;, colour=&quot;white&quot;),
+        axis.title = element_text(size = 16),
+        legend.text = element_text(size=8),
+        legend.title=element_text(size=16),
+        legend.position = c(0.2, 0.65),
+        legend.key.size = unit(4, &quot;mm&quot;),
+        axis.line = element_line(colour = &quot;black&quot;, size = 1, linetype = &quot;solid&quot;),
+        strip.background = element_rect(colour = &quot;black&quot;, fill = &quot;white&quot;,size=2, linetype=&quot;solid&quot;),
+        strip.text.x = element_text(size=12), 
+        strip.text.y = element_text(size=12)
+  )+
+  xlab(&quot;Days after N&quot;)+
+  ylab(&quot;Relative abundance &quot;)+
+  ylim(c(0.00,0.30))
+Class.Acidobacteria</code></pre>
+<p><img src="CABBI_16srDNA_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p>See how N affect (2015+2016)</p>
+<pre class="r"><code>mis.noRare.no2017 &lt;-prune_samples(sample_data(mis.noRare.noBulk)$Year !=&quot;2017&quot;, mis.noRare.noBulk)
+sample_data(mis.noRare.no2017)$Nitrogen &lt;- as.factor(sample_data(mis.noRare.no2017)$Nitrogen)
+diagdds.1516= phyloseq_to_deseq2(mis.noRare.no2017, ~Nitrogen)
+diagdds.1516$Nitrogen &lt;- relevel(diagdds.1516$Nitrogen, ref=&quot;0&quot;) # here is to set the N0 as the reference level by relevel
+diagdds.1516=DESeq(diagdds.1516, test=&quot;Wald&quot;, fitType=&quot;parametric&quot;)
+#resultsNames(diagdds)
+#&quot;Intercept&quot;         &quot;Nitrogen_200_vs_0&quot; &quot;Nitrogen_400_vs_0&quot;
+res.1516 &lt;- results(diagdds.1516)
+alpha=0.01
+sigtab.1516 = res.1516[which(res.1516$padj &lt; alpha), ]#286 7
+write.csv(sigtab.1516, file=&quot;data/sigOTUs_M1516_N.csv&quot;)</code></pre>
+<p>Read the result file of DESeq2 file</p>
+<pre class="r"><code>sigtab.1516 &lt;- read.csv(file=&quot;data/sigOTUs_M1516_N.csv&quot;)
+
+mis.noBulk.no2017 &lt;- prune_samples(sample_data(mis.noBulk)$Year != &quot;2017&quot;, mis.noBulk)
+mis.noBulk.no2017.relative &lt;- transform_sample_counts(mis.noBulk.no2017, function(x) x/sum(x))
+sigASVs.1516.N.phylo &lt;- subset_taxa(mis.noBulk.no2017.relative, taxa_names(mis.noBulk.no2017.relative) %in% sigtab.1516$X)
+saveRDS(sigASVs.1516.N.phylo, file=&quot;data/sigOTUS_inM1516_by_N.rds&quot;)
+sigASVs.1516.N.glom &lt;- conglomerate_taxa(sigASVs.1516.N.phylo, classification = &quot;Phylum&quot;)
+sigASVs.1516.N.glom.melt &lt;- melt_phyloseq(sigASVs.1516.N.glom)
+sigASVs.1516.N.glom.melt.mean &lt;- ddply(sigASVs.1516.N.glom.melt, c(&quot;OTU&quot;,&quot;Phylum&quot;,&quot;Nitrogen&quot;,&quot;Days&quot;), summarise, mean=mean(Abundance))
+sigASVs.M1516.N.bar &lt;- ggplot(data=sigASVs.1516.N.glom.melt.mean, mapping = aes_string(x=&quot;as.factor(Days)&quot;, y=&quot;mean&quot;))+
+  geom_bar(aes(fill=Phylum),stat=&quot;identity&quot;, position=&quot;stack&quot;)+facet_grid(~Nitrogen,labeller = labeller(Nitrogen=as_labeller(Nitrogen)))+
+  scale_fill_manual(values = M2017.c[sort(unique((with_abund.sigtab.M2017.N.glom.melt.mean)$Phylum)) %in% sort(unique((sigASVs.1516.N.glom.melt.mean)$Phylum))]
+)+
+  theme(axis.text.x = element_text(angle = 90, size=14),
+        axis.text.y = element_text(size=14),
+        axis.title.y = element_text(angle=90),
+        panel.background=element_rect(fill=&quot;white&quot;, colour=&quot;white&quot;),
+        axis.title = element_text(size = 16),
+        legend.text = element_text(size=8),
+        legend.title=element_text(size=16),
+        legend.position = c(0.2, 0.65),
+        legend.key.size = unit(4, &quot;mm&quot;),
+        axis.line = element_line(colour = &quot;black&quot;, size = 1, linetype = &quot;solid&quot;),
+        strip.background = element_rect(colour = &quot;black&quot;, fill = &quot;white&quot;,size=2, linetype=&quot;solid&quot;),
+        strip.text.x = element_text(size=12), 
+        strip.text.y = element_text(size=12)
+  )+
+  xlab(&quot;Days after N&quot;)+
+  ylab(&quot;Relative abundance &quot;)+
+  ylim(c(0.00,0.30))
+sigASVs.M1516.N.bar</code></pre>
+<p><img src="CABBI_16srDNA_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<p>To put enriched ASvs assocaited in M1516 or M17 to compare</p>
+<pre class="r"><code>sigASVs.M1516.M17.proteobacteria.Acidobacteria &lt;- ggarrange(sigASVs.M1516.N.bar,sigASVs.M2017.N.bar, Class.Acidobacteria, Class.proteobacteria,
+                                              labels=c(&quot;Aged M&quot;,&quot;Younger M&quot;,&quot;Acidobacteria&quot;, &quot;Proteobacteria&quot;),
+                                              label.x=0.7,
+                                              label.y=0.9,
+                                              ncol=2, 
+                                              nrow=2)
+
+sigASVs.M1516.M17.proteobacteria.Acidobacteria</code></pre>
+<p><img src="CABBI_16srDNA_files/figure-html/unnamed-chunk-24-1.png" width="1920" /></p>
+<p>We have a question: Early season Miscanthus has more stimulated microbial community from ROOTS BEING THERE (UNLIKE CORN) and thus less SIMILAR TO corn than the later season Miscanthus. Is this true? Here i will only see the N0 associated with Miscanthus and Corn. and devided each of them to be two groups: Early and late so wil be EM, LM, EC,LC From ps.1.rare</p>
+<pre class="r"><code># #pruning out the bulk samples
+# ps.1.rare.noBulk &lt;- prune_samples(sample_data(ps.1.rare)$Soil != &quot;Bulk&quot;, ps.1.rare)
+# #then only get N0 samples
+# ps.1.rare.noBulk.N0 &lt;- prune_samples(sample_data(ps.1.rare.noBulk)$Nitrogen == &quot;0&quot;, ps.1.rare.noBulk)
+# #Define Early and Late season categorical variable and add this new variable into sample data
+# #early season is to be sampling days equal to -14, -10, 5
+# sample_data(ps.1.rare.noBulk.N0)$Early = factor(get_variable(ps.1.rare.noBulk.N0, &quot;Days&quot;) %in% c(&quot;-14&quot;,&quot;-10&quot;,&quot;5&quot;))
+# sample_data(ps.1.rare.noBulk.N0)$Late = factor(get_variable(ps.1.rare.noBulk.N0, &quot;Days&quot;) %in% c(&quot;21&quot;,&quot;69&quot;))
+# # # only Miscanthus.
+# # Mis.noBulk.N0 &lt;- prune_samples(sample_data(ps.1.rare.noBulk.N0)$Plant ==&quot;Miscanthus&quot;, ps.1.rare.noBulk.N0)
+
+# EM &lt;- prune_samples(sample_data(Mis.noBulk.N0)$Early ==&quot;TRUE&quot;, Mis.noBulk.N0)
+# LM &lt;- prune_samples(sample_data(Mis.noBulk.N0)$Late ==&quot;TRUE&quot;, Mis.noBulk.N0)
+
+# ##only Corn
+# corn.noBulk.N0 &lt;- prune_samples(sample_data(ps.1.rare.noBulk.N0)$Plant ==&quot;Corn&quot;, ps.1.rare.noBulk.N0)
+# EC &lt;- prune_samples(sample_data(corn.noBulk.N0)$Early ==&quot;TRUE&quot;, corn.noBulk.N0)
+# LC &lt;- prune_samples(sample_data(corn.noBulk.N0)$Late ==&quot;TRUE&quot;, corn.noBulk.N0)</code></pre>
+<p>Now we have the EM, LM, EC, LC. i will firstly use pairwise adonis to compare them</p>
+<pre class="r"><code># ps.1.rare.noBulk.N0.df &lt;- t(otu_table(ps.1.rare.noBulk.N0))
+# ps.1.rare.noBulk.N0.df.dist &lt;- vegdist(ps.1.rare.noBulk.N0.df, method=&quot;bray&quot;)
+# fac=data.frame(Plant=as.factor(sample_data(ps.1.rare.noBulk.N0)$Plant), Early=sample_data(ps.1.rare.noBulk.N0)$Early,
+#              Plot=as.factor(sample_data(ps.1.rare.noBulk.N0)$Plot))
+# pairwise.adonis2(dist(ps.1.rare.noBulk.N0.df) ~ Plant*Early, data=fac, strata=&quot;Plot&quot;)</code></pre>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+---
+title: "CABBI 16s rDNA Amplicon sequencing analysis"
+---
+
+```{r echo=FALSE}
+knitr::opts_chunk$set(output.lines=6, cache = TRUE, fig.width = 16, fig.height = 8)
+```
+
+
+
+A place for all of my github practice files.
+
+* [RMarkdown](https://github.com/LanyingMa/CABBI_16s_microbialCommunity)
