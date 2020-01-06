@@ -1,0 +1,20 @@
+name: CABBI_16s_rDNA repo
+output_dir: docs
+navbar:
+  title: ''
+  left:
+  - text: About
+    href: index.html
+  - text: CABBI Amplicon sequencing analysis 
+    href: CABBI_16srDNA.html
+
+    
+output:
+  html_document:
+    theme: lumen
+    lib_dir: site_libs
+    toc: yes
+    toc_float:
+      smooth_scroll: yes
+      collapsed: no
+    self_contained: no
